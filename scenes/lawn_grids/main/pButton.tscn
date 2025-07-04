@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://crly0codj33cu"]
+
+[ext_resource type="Script" uid="uid://bgqnthaeximx7" path="res://scenes/lawn_grids/main/pButton.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bcjdc6b8s2fve" path="res://resources/gui/seedpacket_selection.png" id="2"]
+[ext_resource type="SpriteFrames" path="res://resources/spriteFrames/psh_seedpacket_spriteframe.tres" id="3"]
+[ext_resource type="Script" uid="uid://c1dlyot7q3j8r" path="res://scenes/lawn_grids/main/Sprite_a.gd" id="4"]
+[ext_resource type="Script" uid="uid://fvrgn3hbipap" path="res://scenes/lawn_grids/main/Tooltip.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://c0q61rbo5nj3b" path="res://resources/gui/tooltip.png" id="6"]
+[ext_resource type="Script" uid="uid://bwe2om3u8ujar" path="res://scenes/lawn_grids/main/seedProgress.gd" id="7"]
+
+[node name="SeedPacket" type="Button"]
+custom_minimum_size = Vector2(100, 50)
+offset_right = 100.0
+offset_bottom = 50.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+action_mode = 0
+text = "peashooter"
+flat = true
+clip_text = true
+script = ExtResource("1")
+seedpacket = "peashooter"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3")
+frame = 33
+offset = Vector2(50, 25)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2")
+offset = Vector2(50, 25)
+script = ExtResource("4")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+step = 0.0
+fill_mode = 1
+texture_progress = ExtResource("2")
+script = ExtResource("7")
+
+[node name="PriceTag" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 33.0
+offset_right = 44.0
+offset_bottom = 47.0
+text = "100"
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = 10
+z_as_relative = false
+
+[node name="Tooltip" type="NinePatchRect" parent="Node2D"]
+offset_right = 100.0
+offset_bottom = 40.0
+texture = ExtResource("6")
+script = ExtResource("5")
+
+[node name="PlantName" type="Label" parent="Node2D/Tooltip"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 100.0
+text = "0"
+horizontal_alignment = 1
+
+[node name="SunCost" type="Label" parent="Node2D/Tooltip"]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 100.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="Node2D/Tooltip" method="_on_SeedPacket_mouse_entered"]
+[connection signal="mouse_exited" from="." to="Node2D/Tooltip" method="_on_SeedPacket_mouse_exited"]
+[connection signal="toggled" from="." to="." method="_on_SeedPacket_toggled"]

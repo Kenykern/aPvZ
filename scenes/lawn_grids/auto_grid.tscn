@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4b0a0xs38wvh"]
+
+[ext_resource type="Script" uid="uid://b1u785dfe3u12" path="res://scenes/lawn_grids/auto_grid.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://boggv0hy1ucx1" path="res://Sin título2.png" id="2"]
+[ext_resource type="Script" uid="uid://mhw6ru5b5u4a" path="res://scenes/lawn_grids/Control.gd" id="3"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+
+[node name="v1" type="Node2D"]
+script = ExtResource("1")
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="v2" type="Node2D" parent="."]
+position = Vector2(20, 20)
+
+[node name="Control" type="Control" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+script = ExtResource("3")
+
+[node name="Area2D" type="Area2D" parent="Control"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Area2D"]
+shape = SubResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Area2D"]
+
+[node name="SinTítulo2" type="Sprite2D" parent="Control/Area2D"]
+position = Vector2(139, 115)
+texture = ExtResource("2")

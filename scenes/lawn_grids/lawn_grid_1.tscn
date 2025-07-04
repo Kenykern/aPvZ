@@ -1,0 +1,190 @@
+[gd_scene load_steps=3 format=3 uid="uid://csd3qyps6lxdv"]
+
+[ext_resource type="PackedScene" uid="uid://553u6tms85cu" path="res://scenes/lawn_grids/main/lawn_tile.tscn" id="1"]
+[ext_resource type="Script" uid="uid://b31gi2bavuctk" path="res://scenes/lawn_grids/lawn_grid_1.gd" id="2"]
+
+[node name="lawn_grid" type="Node2D"]
+script = ExtResource("2")
+__meta__ = {
+"_edit_horizontal_guides_": [435.0],
+"_edit_vertical_guides_": []
+}
+
+[node name="Area2D" parent="." instance=ExtResource("1")]
+position = Vector2(60, 60)
+lane = 1
+
+[node name="Area2D2" parent="." instance=ExtResource("1")]
+position = Vector2(60, 188)
+lane = 2
+
+[node name="Area2D3" parent="." instance=ExtResource("1")]
+position = Vector2(60, 316)
+lane = 3
+
+[node name="Area2D4" parent="." instance=ExtResource("1")]
+position = Vector2(60, 444)
+lane = 4
+
+[node name="Area2D5" parent="." instance=ExtResource("1")]
+position = Vector2(60, 572)
+lane = 5
+
+[node name="Area2D6" parent="." instance=ExtResource("1")]
+position = Vector2(204, 60)
+lane = 1
+
+[node name="Area2D7" parent="." instance=ExtResource("1")]
+position = Vector2(204, 188)
+lane = 2
+
+[node name="Area2D8" parent="." instance=ExtResource("1")]
+position = Vector2(204, 316)
+lane = 3
+
+[node name="Area2D9" parent="." instance=ExtResource("1")]
+position = Vector2(204, 444)
+lane = 4
+
+[node name="Area2D10" parent="." instance=ExtResource("1")]
+position = Vector2(204, 572)
+lane = 5
+
+[node name="Area2D11" parent="." instance=ExtResource("1")]
+position = Vector2(340, 60)
+lane = 1
+
+[node name="Area2D12" parent="." instance=ExtResource("1")]
+position = Vector2(340, 188)
+lane = 2
+
+[node name="Area2D13" parent="." instance=ExtResource("1")]
+position = Vector2(340, 316)
+lane = 3
+
+[node name="Area2D14" parent="." instance=ExtResource("1")]
+position = Vector2(340, 444)
+lane = 4
+
+[node name="Area2D15" parent="." instance=ExtResource("1")]
+position = Vector2(340, 572)
+lane = 5
+
+[node name="Area2D16" parent="." instance=ExtResource("1")]
+position = Vector2(476, 60)
+lane = 1
+
+[node name="Area2D17" parent="." instance=ExtResource("1")]
+position = Vector2(476, 188)
+lane = 2
+
+[node name="Area2D18" parent="." instance=ExtResource("1")]
+position = Vector2(476, 316)
+lane = 3
+
+[node name="Area2D19" parent="." instance=ExtResource("1")]
+position = Vector2(476, 444)
+lane = 4
+
+[node name="Area2D20" parent="." instance=ExtResource("1")]
+position = Vector2(476, 572)
+lane = 5
+
+[node name="Area2D21" parent="." instance=ExtResource("1")]
+position = Vector2(612, 60)
+lane = 1
+
+[node name="Area2D22" parent="." instance=ExtResource("1")]
+position = Vector2(612, 188)
+lane = 2
+
+[node name="Area2D23" parent="." instance=ExtResource("1")]
+position = Vector2(612, 316)
+lane = 3
+
+[node name="Area2D24" parent="." instance=ExtResource("1")]
+position = Vector2(612, 444)
+lane = 4
+
+[node name="Area2D25" parent="." instance=ExtResource("1")]
+position = Vector2(612, 572)
+lane = 5
+
+[node name="Area2D26" parent="." instance=ExtResource("1")]
+position = Vector2(748, 60)
+lane = 1
+
+[node name="Area2D27" parent="." instance=ExtResource("1")]
+position = Vector2(748, 188)
+lane = 2
+
+[node name="Area2D28" parent="." instance=ExtResource("1")]
+position = Vector2(748, 316)
+lane = 3
+
+[node name="Area2D29" parent="." instance=ExtResource("1")]
+position = Vector2(748, 444)
+lane = 4
+
+[node name="Area2D30" parent="." instance=ExtResource("1")]
+position = Vector2(748, 572)
+lane = 5
+
+[node name="Area2D31" parent="." instance=ExtResource("1")]
+position = Vector2(884, 60)
+
+[node name="Area2D32" parent="." instance=ExtResource("1")]
+position = Vector2(884, 188)
+lane = 2
+
+[node name="Area2D33" parent="." instance=ExtResource("1")]
+position = Vector2(884, 316)
+lane = 3
+
+[node name="Area2D34" parent="." instance=ExtResource("1")]
+position = Vector2(884, 444)
+lane = 4
+
+[node name="Area2D35" parent="." instance=ExtResource("1")]
+position = Vector2(884, 572)
+lane = 5
+
+[node name="Area2D36" parent="." instance=ExtResource("1")]
+position = Vector2(1020, 60)
+lane = 1
+
+[node name="Area2D37" parent="." instance=ExtResource("1")]
+position = Vector2(1020, 188)
+lane = 2
+
+[node name="Area2D38" parent="." instance=ExtResource("1")]
+position = Vector2(1020, 316)
+lane = 3
+
+[node name="Area2D39" parent="." instance=ExtResource("1")]
+position = Vector2(1020, 444)
+lane = 4
+
+[node name="Area2D40" parent="." instance=ExtResource("1")]
+position = Vector2(1020, 572)
+lane = 5
+
+[node name="Area2D41" parent="." instance=ExtResource("1")]
+position = Vector2(1156, 60)
+lane = 1
+
+[node name="Area2D42" parent="." instance=ExtResource("1")]
+position = Vector2(1156, 188)
+lane = 2
+
+[node name="Area2D43" parent="." instance=ExtResource("1")]
+position = Vector2(1156, 316)
+lane = 3
+
+[node name="Area2D44" parent="." instance=ExtResource("1")]
+position = Vector2(1156, 444)
+lane = 4
+
+[node name="Area2D45" parent="." instance=ExtResource("1")]
+position = Vector2(1156, 572)
+lane = 5

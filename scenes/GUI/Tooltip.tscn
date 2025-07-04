@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt68ihpnryi6m"]
+
+[ext_resource type="Texture2D" uid="uid://c0q61rbo5nj3b" path="res://resources/gui/tooltip.png" id="1"]
+[ext_resource type="Script" uid="uid://fvrgn3hbipap" path="res://scenes/lawn_grids/main/Tooltip.gd" id="2"]
+
+[node name="Tooltip" type="NinePatchRect"]
+offset_right = 100.0
+offset_bottom = 40.0
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="PlantName" type="Label" parent="."]
+offset_top = 4.0
+offset_right = 100.0
+text = "0"
+align = 1
+
+[node name="SunCost" type="Label" parent="."]
+offset_top = 20.0
+offset_right = 100.0
+text = "0"
+align = 1
+valign = 1

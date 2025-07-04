@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2j0nffucs3nt"]
+
+[ext_resource type="Script" uid="uid://qaseu0pxc0c8" path="res://addons/Godoxel/VisualGrid.gd" id="1"]
+
+[node name="VisualGrid" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")

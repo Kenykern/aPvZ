@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1x0l8psstaep"]
+
+[ext_resource type="Script" uid="uid://cwlmx24wwc16y" path="res://scenes/peashooter/pea/pea.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dq2a6a6hf0cvf" path="res://resources/peashooter/pea/pspea_00001.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://ceuggcxpksvs5" path="res://resources/peashooter/pea/pspeapart_00001.png" id="3"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 42.5
+
+[sub_resource type="Curve" id="2"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="pea" type="Node2D"]
+script = ExtResource("1")
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -160)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("2")
+
+[node name="colArea" type="Area2D" parent="."]
+position = Vector2(0, -160)
+scale = Vector2(0.4, 0.4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colArea"]
+shape = SubResource("1")
+
+[node name="destroyTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -170)
+emitting = false
+amount = 10
+lifetime = 0.8
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 0.71
+texture = ExtResource("3")
+emission_shape = 1
+emission_sphere_radius = 25.18
+direction = Vector2(0, 0)
+spread = 150.0
+gravity = Vector2(0, 520)
+initial_velocity = 444.44
+initial_velocity_random = 1.0
+scale_amount = 0.01
+scale_amount_random = 1.0
+scale_amount_curve = SubResource("2")
+
+[connection signal="area_entered" from="colArea" to="." method="_on_colArea_area_entered"]
+[connection signal="timeout" from="destroyTimer" to="." method="_on_destroyTimer_timeout"]

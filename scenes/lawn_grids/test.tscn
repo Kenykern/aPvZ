@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://txrq28f1qu38"]
+
+[ext_resource type="PackedScene" uid="uid://b4b0a0xs38wvh" path="res://scenes/lawn_grids/auto_grid.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://csd3qyps6lxdv" path="res://scenes/lawn_grids/lawn_grid_1.tscn" id="2"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Area2D" parent="." instance=ExtResource("1")]
+position = Vector2(-9, -5)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="Node2D" parent="." instance=ExtResource("2")]
+position = Vector2(73, 39)

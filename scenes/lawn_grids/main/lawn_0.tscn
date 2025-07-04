@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=3 uid="uid://1wcruifr4hse"]
+
+[ext_resource type="PackedScene" uid="uid://csd3qyps6lxdv" path="res://scenes/lawn_grids/lawn_grid_1.tscn" id="1"]
+[ext_resource type="Script" uid="uid://6fi3ovij6dki" path="res://scenes/lawn_grids/controller.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://3tb4hq0al78r" path="res://PvZ2_Backyard01.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://cg2k0xg4lgtiw" path="res://scenes/enemies/zombie/zombie.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://cilt04m1k0rb5" path="res://scenes/lawn_grids/main/seed_planter.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://b11bimyww6u84" path="res://scenes/sunflower/sunflower.tscn" id="6"]
+[ext_resource type="Script" uid="uid://bwqbw3231lv7a" path="res://scenes/lawn_grids/spawn_controller.gd" id="7"]
+[ext_resource type="Script" uid="uid://c4n2512gw4dnb" path="res://scenes/lawn_grids/main/z_timeline.gd" id="8"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(943, 11.5)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("2")
+
+[node name="spawn_controller" type="Node2D" parent="."]
+script = ExtResource("7")
+
+[node name="z_timeline" type="Node2D" parent="spawn_controller"]
+script = ExtResource("8")
+
+[node name="stTimer" type="Timer" parent="spawn_controller/z_timeline"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -687.0
+offset_top = -256.0
+offset_right = 2312.0
+offset_bottom = 941.0
+mouse_filter = 2
+texture = ExtResource("3")
+stretch_mode = 5
+
+[node name="lawn_grid" parent="." instance=ExtResource("1")]
+z_index = 1
+position = Vector2(102, 92)
+scale = Vector2(0.8, 1)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Zombie" parent="Node2D" instance=ExtResource("4")]
+position = Vector2(896, 645)
+
+[node name="Zombie2" parent="Node2D" instance=ExtResource("4")]
+position = Vector2(822, 560)
+
+[node name="sunflower" parent="Node2D" instance=ExtResource("6")]
+position = Vector2(853, 659)
+
+[node name="Zombie3" parent="Node2D" instance=ExtResource("4")]
+position = Vector2(1124, 274)
+
+[node name="lanePhy1" type="StaticBody2D" parent="."]
+position = Vector2(600, 203)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lanePhy1"]
+position = Vector2(21, 3)
+shape = SubResource("1")
+
+[node name="lanePhy2" type="StaticBody2D" parent="."]
+position = Vector2(601, 321)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lanePhy2"]
+position = Vector2(21, 3)
+shape = SubResource("1")
+
+[node name="lanePhy3" type="StaticBody2D" parent="."]
+position = Vector2(611, 436)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lanePhy3"]
+position = Vector2(21, 3)
+shape = SubResource("1")
+
+[node name="lanePhy4" type="StaticBody2D" parent="."]
+position = Vector2(621, 563)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lanePhy4"]
+position = Vector2(21, 3)
+shape = SubResource("1")
+
+[node name="lanePhy5" type="StaticBody2D" parent="."]
+position = Vector2(620, 694)
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lanePhy5"]
+position = Vector2(21, 3)
+shape = SubResource("1")
+
+[node name="Control" parent="." instance=ExtResource("5")]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1004.0
+offset_bottom = 54.0
+
+[node name="HBoxContainer" parent="Control" index="0"]
+offset_left = 88.0
+offset_top = 55.0
+offset_right = 1088.0
+offset_bottom = 105.0
+
+[node name="spawn1" type="Node2D" parent="."]
+position = Vector2(1263, 209)
+
+[node name="spawn2" type="Node2D" parent="."]
+position = Vector2(1266, 330)
+
+[node name="spawn3" type="Node2D" parent="."]
+position = Vector2(1274, 453)
+
+[node name="spawn4" type="Node2D" parent="."]
+position = Vector2(1269, 581)
+
+[node name="spawn5" type="Node2D" parent="."]
+position = Vector2(1265, 682)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(417, 352)
+zoom = Vector2(0.9, 0.9)
+
+[connection signal="timeout" from="spawn_controller/z_timeline/stTimer" to="spawn_controller/z_timeline" method="_on_stTimer_timeout"]
+
+[editable path="Control"]
