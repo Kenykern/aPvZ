@@ -44,7 +44,7 @@ func spawn_random(z):
 func spawn1(z):
 	var rand = Vector2(randf_range(-20, 200), randf_range(-10, 10))
 	var newZ = z.instantiate()
-	newZ.get_node("an_zombie").set_frame(randi() % 212)
+	newZ.get_node("an_zombie").set_frame(randi() % 212); newZ.get_node("an_zombie").play()
 	newZ.add_to_group("lane1")
 	newZ.lane = 1
 	$"../Node2D".add_child(newZ)
@@ -53,7 +53,7 @@ func spawn1(z):
 func spawn2(z):
 	var rand = Vector2(randf_range(-20, 200), randf_range(-10, 10))
 	var newZ = z.instantiate()
-	newZ.get_node("an_zombie").set_frame(randi() % 212)
+	newZ.get_node("an_zombie").set_frame(randi() % 212); newZ.get_node("an_zombie").play()
 	newZ.lane = 2
 	newZ.add_to_group("lane2")
 	$"../Node2D".add_child(newZ)
@@ -62,7 +62,7 @@ func spawn2(z):
 func spawn3(z):
 	var rand = Vector2(randf_range(-20, 200), randf_range(-10, 10))
 	var newZ = z.instantiate()
-	newZ.get_node("an_zombie").set_frame(randi() % 212)
+	newZ.get_node("an_zombie").set_frame(randi() % 212); newZ.get_node("an_zombie").play()
 	newZ.lane = 3
 	newZ.add_to_group("lane3")
 	$"../Node2D".add_child(newZ)
@@ -71,7 +71,7 @@ func spawn3(z):
 func spawn4(z):
 	var rand = Vector2(randf_range(-20, 200), randf_range(-10, 10))
 	var newZ = z.instantiate()
-	newZ.get_node("an_zombie").set_frame(randi() % 212)
+	newZ.get_node("an_zombie").set_frame(randi() % 212); newZ.get_node("an_zombie").play()
 	newZ.lane = 4
 	newZ.add_to_group("lane4")
 	$"../Node2D".add_child(newZ)
@@ -80,7 +80,7 @@ func spawn4(z):
 func spawn5(z):
 	var rand = Vector2(randf_range(-20, 200), randf_range(-10, 10))
 	var newZ = z.instantiate()
-	newZ.get_node("an_zombie").set_frame(randi() % 212)
+	newZ.get_node("an_zombie").set_frame(randi() % 212); newZ.get_node("an_zombie").play()
 	newZ.lane = 5
 	newZ.add_to_group("lane5")
 	$"../Node2D".add_child(newZ)

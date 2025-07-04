@@ -38,6 +38,7 @@ position = Vector2(102, 92)
 scale = Vector2(0.8, 1)
 
 [node name="Node2D" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Zombie" parent="Node2D" instance=ExtResource("4")]
 position = Vector2(896, 645)

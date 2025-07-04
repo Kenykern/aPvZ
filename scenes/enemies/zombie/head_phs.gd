@@ -1,4 +1,4 @@
-"""
+
 extends RigidBody2D
 var fading = false
 
@@ -55,4 +55,3 @@ func _on_head_phs_body_entered(body):
 func _on_fadetimer_timeout():
 	fading = true
 	pass # Replace with function body.
-"""

@@ -754,7 +754,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 20.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2672,7 +2672,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("778")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk_nohead",
 "speed": 30.0
 }]
@@ -2698,7 +2698,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="4"]
-size = Vector2(17.7083, 50.4167)
+size = Vector2(17.7083, 71.4584)
 
 [node name="Zombie" type="Node2D" groups=["foe"]]
 scale = Vector2(0.6, 0.6)
@@ -2714,8 +2714,6 @@ shape = SubResource("1")
 position = Vector2(-18, -142)
 sprite_frames = SubResource("2")
 animation = &"walk"
-frame = 93
-frame_progress = 0.712894
 
 [node name="head_spawn" type="Node2D" parent="."]
 position = Vector2(-54, -245)
@@ -2730,7 +2728,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="arm_spawn" type="Node2D" parent="."]
-position = Vector2(-85, -238.333)
+position = Vector2(-20, -105)
 
 [node name="EatTimer" type="Timer" parent="."]
 one_shot = true
@@ -2740,7 +2738,7 @@ collision_layer = 512
 collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EatArea"]
-position = Vector2(-65, -71.25)
+position = Vector2(-65, -60.7292)
 shape = SubResource("4")
 
 [connection signal="area_entered" from="hitArea" to="." method="_on_hitArea_area_entered"]

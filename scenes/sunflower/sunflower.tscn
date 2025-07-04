@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://b11bimyww6u84"]
+[gd_scene load_steps=117 format=3 uid="uid://b11bimyww6u84"]
 
 [ext_resource type="Texture2D" uid="uid://bg3tvv0yvydwn" path="res://resources/sunflower/std/sunflower_std_00005.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://cv2dh72tfmpgs" path="res://resources/sunflower/std/sunflower_std_00006.png" id="2"]
@@ -464,18 +464,25 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yinmg"]
+_data = {
+&"popup": ExtResource("114")
+}
+
 [node name="sunflower" type="Node2D"]
 scale = Vector2(0.7, 0.7)
 script = ExtResource("113")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -109)
-frames = SubResource("1")
-animation = "std"
-frame = 18
-playing = true
+sprite_frames = SubResource("1")
+animation = &"std"
+autoplay = "std"
+frame_progress = 0.390337
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/popup = ExtResource("114")
+libraries = {
+&"": SubResource("AnimationLibrary_yinmg")
+}
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_AnimatedSprite_animation_finished"]

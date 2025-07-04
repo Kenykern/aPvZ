@@ -15,5 +15,5 @@ func _process(delta):
 	else:
 		get_parent().disabled = false
 		get_parent().mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-		if !$"../AnimatedSprite2D".playing:
+		if !$"../AnimatedSprite2D".is_playing():
 			$"../AnimatedSprite2D".play()

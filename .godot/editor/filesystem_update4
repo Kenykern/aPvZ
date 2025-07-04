@@ -4,3 +4,13 @@ res://scenes/enemies/zombie/head_phs.tscn
 res://scenes/enemies/zombie/zombie.tscn
 res://scenes/lawn_grids/main/seed_planter.tscn
 res://scenes/lawn_grids/main/pButton.tscn
+res://scenes/lawn_grids/main/pButton.gd
+res://scenes/lawn_grids/main/seedProgress.gd
+res://scenes/lawn_grids/spawn_controller.gd
+res://scenes/enemies/zombie/zombie.gd
+res://scenes/peashooter/psh.gd
+res://scenes/enemies/zombie/head_phs.gd
+res://scenes/enemies/zombie/arm_phs.tscn
+res://scenes/sunflower/sunflower.tscn
+res://scenes/enemies/zombie/arm_phs.gd
+res://scenes/peashooter/psh.tscn

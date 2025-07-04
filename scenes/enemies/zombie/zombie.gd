@@ -28,7 +28,11 @@ func _process(delta):
 		var currFrame = $an_zombie.get_frame()
 		$an_zombie.set_animation("walk_noarm")
 		$an_zombie.set_frame(currFrame)
-#		$head_phs2.pop_off()
+		var darm = arm.instantiate()
+		add_child(darm)
+		darm.position = $arm_spawn.position
+		darm.pgp = global_position
+		#$head_phs2.pop_off()
 		state = "hurt"
 		
 	if curr_health <= 0 and state == "hurt":
@@ -42,6 +46,13 @@ func _process(delta):
 		dhead.pgp = global_position
 		$hitArea.queue_free()
 		state = "dead"
+		
+		if $an_zombie.animation == "death":
+			if $an_zombie.get_frame() == 24:
+				$an_zombie.stop()
+		
+#	if $an_zombie.is_playing("walk_nohead") and state == "dead":
+#		$an_zombie.animation_finished
 		
 		
 	if Input.is_action_just_pressed("ui_right"):
@@ -80,6 +91,7 @@ func _hit(damage):
 func _on_an_zombie_animation_finished():
 	if state == "dead":
 		$an_zombie.set_animation("death")
+		$an_zombie.play()
 		$fadeTimer.start()
 	pass # Replace with function body.
 
@@ -103,8 +115,8 @@ func _on_EatArea_area_entered(area):
 	pass # Replace with function body.
 
 func _on_EatArea_area_exited(area):
-	$an_zombie.play()
-	eating = false
+	_loc_await(randi() % 2)
+
 	pass # Replace with function body.
 
 
@@ -118,3 +130,9 @@ func _on_EatTimer_timeout():
 	if eating == true:
 		$EatTimer.start(1)
 	pass # Replace with function body.
+	
+func _loc_await(time):
+	await get_tree().create_timer(time).timeout
+	$an_zombie.play()
+	eating = false
+		

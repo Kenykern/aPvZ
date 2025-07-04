@@ -32,10 +32,11 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Godoxel/plugin.cfg", "res://addons/SpriteSheetImporter/plugin.cfg")
+enabled=PackedStringArray("res://addons/SpriteSheetImporter/plugin.cfg")
 
 [gui]
 
+theme/custom="uid://dh40n6ybco7a"
 common/drop_mouse_on_gui_input_disabled=true
 
 [importer_defaults]
