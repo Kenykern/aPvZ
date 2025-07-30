@@ -398,7 +398,7 @@ position = Vector2(110, -96)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -112)
 sprite_frames = SubResource("1")
-animation = &"std"
+animation = &"shoot"
 autoplay = "std"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
@@ -431,4 +431,6 @@ position = Vector2(20, -54.2857)
 shape = SubResource("3")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="timeout" from="TargetCheck" to="." method="_on_TargetCheck_timeout"]
+[connection signal="timeout" from="TargetCheck" to="." method="_on_target_check_timeout"]

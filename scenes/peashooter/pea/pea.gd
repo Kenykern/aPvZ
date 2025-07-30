@@ -44,7 +44,7 @@ func _on_colArea_area_entered(area):
 #			4: foearr = get_tree().get_nodes_in_group("lane4")
 #			5: foearr = get_tree().get_nodes_in_group("lane5")
 	
-	if area.is_in_group("foe") and used == false:
+	if area.get_parent().is_in_group("foe") and used == false:
 		used = true
 		speed = 0
 		area.get_parent()._hit(damage)

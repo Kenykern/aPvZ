@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="apvz"
-config/features=PackedStringArray("4.4")
+config/features=PackedStringArray("4.5")
 config/icon="res://addons/AnimatedTextureBetter/icon.png"
 
 [autoload]
@@ -22,6 +22,7 @@ StatList="*res://scenes/lawn_grids/statList.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
@@ -33,6 +34,10 @@ version_control/autoload_on_startup=true
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/SpriteSheetImporter/plugin.cfg")
+
+[global_group]
+
+foe=""
 
 [gui]
 

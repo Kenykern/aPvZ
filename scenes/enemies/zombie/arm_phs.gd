@@ -7,6 +7,7 @@ var pgp
 var globalp
 var upd = true
 var pdiff
+var fading = false
 func _ready():
 	randomize()
 	hspeed = randf_range(1, 2)
@@ -42,5 +43,13 @@ func _process(delta):
 		pdiff = get_parent().global_position.x
 		upd = false
 		
-		
+	if fading == true:
+		modulate.a -= 0.05
 	
+	if modulate.a < 0:
+		queue_free()
+
+
+func _on_fadetimer_timeout() -> void:
+	if fading == false:
+		fading = true

@@ -675,6 +675,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("764")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("762")
 }, {
 "duration": 1.0,
@@ -754,6 +762,89 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("762")
+}, {
+"duration": 1.0,
+"texture": ExtResource("774")
+}, {
+"duration": 1.0,
+"texture": ExtResource("755")
+}, {
+"duration": 1.0,
+"texture": ExtResource("788")
+}, {
+"duration": 1.0,
+"texture": ExtResource("768")
+}, {
+"duration": 1.0,
+"texture": ExtResource("785")
+}, {
+"duration": 1.0,
+"texture": ExtResource("781")
+}, {
+"duration": 1.0,
+"texture": ExtResource("798")
+}, {
+"duration": 1.0,
+"texture": ExtResource("782")
+}, {
+"duration": 1.0,
+"texture": ExtResource("789")
+}, {
+"duration": 1.0,
+"texture": ExtResource("769")
+}, {
+"duration": 1.0,
+"texture": ExtResource("794")
+}, {
+"duration": 1.0,
+"texture": ExtResource("795")
+}, {
+"duration": 1.0,
+"texture": ExtResource("763")
+}, {
+"duration": 1.0,
+"texture": ExtResource("800")
+}, {
+"duration": 1.0,
+"texture": ExtResource("792")
+}, {
+"duration": 1.0,
+"texture": ExtResource("801")
+}, {
+"duration": 1.0,
+"texture": ExtResource("757")
+}, {
+"duration": 1.0,
+"texture": ExtResource("775")
+}, {
+"duration": 1.0,
+"texture": ExtResource("770")
+}, {
+"duration": 1.0,
+"texture": ExtResource("783")
+}, {
+"duration": 1.0,
+"texture": ExtResource("777")
+}, {
+"duration": 1.0,
+"texture": ExtResource("771")
+}, {
+"duration": 1.0,
+"texture": ExtResource("784")
+}, {
+"duration": 1.0,
+"texture": ExtResource("802")
+}, {
+"duration": 1.0,
+"texture": ExtResource("764")
+}],
+"loop": false,
+"name": &"death_2",
 "speed": 30.0
 }, {
 "frames": [{
@@ -2704,7 +2795,7 @@ size = Vector2(17.7083, 71.4584)
 scale = Vector2(0.6, 0.6)
 script = ExtResource("453")
 
-[node name="hitArea" type="Area2D" parent="." groups=["foe"]]
+[node name="hitArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitArea"]
 position = Vector2(-4, -109)
@@ -2713,7 +2804,7 @@ shape = SubResource("1")
 [node name="an_zombie" type="AnimatedSprite2D" parent="."]
 position = Vector2(-18, -142)
 sprite_frames = SubResource("2")
-animation = &"walk"
+animation = &"dead"
 
 [node name="head_spawn" type="Node2D" parent="."]
 position = Vector2(-54, -245)

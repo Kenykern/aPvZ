@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var found = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -25,6 +25,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	var currAnim = $AnimatedSprite2D.get_animation()
 	
 	if Input.is_action_just_pressed("ui_accept") and state == "idle":
@@ -53,10 +54,13 @@ func _process(delta):
 #	pass
 
 
+
 func _on_AnimatedSprite_animation_finished():
 	shot = false
 	if state == "shooting":
 		$AnimatedSprite2D.play("shoot")
+		$AnimatedSprite2D.animation = "shoot"
+		print("SHOOT!")
 	elif state == "idle":
 		$AnimatedSprite2D.play("std")
 	pass # Replace with function body.
@@ -68,15 +72,47 @@ func target_check():
 
 
 
+#func _on_TargetCheck_timeout():
+	#var foes = get_tree().get_nodes_in_group(gr)
+	#print(foes)
+	#for i in range(foes.size()):
+		#if foes[i].is_in_group("foe") and foes[i].state != "dead" and foes[i].global_position.x >= global_position.x:
+			#state = "shooting"
+			#break
+		#else:
+			#state = "idle"
+	#pass # Replace with function body.
+#
+#func damage():
+	#modulate.a = 0.5
+
+
 func _on_TargetCheck_timeout():
-	var foes = get_tree().get_nodes_in_group(gr)
-	for i in foes.size():
-		if foes[i].is_in_group("foe") and foes[i].state != "dead" and foes[i].global_position >= global_position:
-			state = "shooting"
+	var foes = get_tree().get_nodes_in_group("foe")
+	print(foes)
+	for foe in foes:
+		print(foe)
+		
+		if foe.is_in_group("foe") and foe.lane == lane and foe.curr_health > 0 and foe.global_position.x > global_position.x:
+			found = true
+			print("correct")
 			break
 		else:
-			state = "idle"
-	pass # Replace with function body.
+			found = false
 
-func damage():
-	modulate.a = 0.5
+	if found:
+		state = "shooting"
+	else:
+		state = "idle"
+			
+
+
+func _on_animated_sprite_2d_animation_looped() -> void:
+	shot = false
+	if state == "shooting":
+		$AnimatedSprite2D.play("shoot")
+		$AnimatedSprite2D.animation = "shoot"
+		print("SHOOT!")
+	elif state == "idle":
+		$AnimatedSprite2D.play("std")
+	pass # Replace with function body.

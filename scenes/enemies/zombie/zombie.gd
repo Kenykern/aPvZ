@@ -3,7 +3,7 @@ var health = 100
 var curr_health = 100
 const head = preload("res://scenes/enemies/zombie/head_phs.tscn")
 const arm = preload("res://scenes/enemies/zombie/arm_phs.tscn")
-var state = "healthy"
+@export var state : String
 var lane = 1
 var eating = false
 var fading = false
@@ -11,6 +11,8 @@ var planteat
 
 
 func _ready():
+	state = "healthy"
+	$an_zombie.animation = "walk"
 #	$head_phs.modulate.a = 0
 #	$head_phs2.modulate.a = 0
 	
@@ -24,32 +26,15 @@ func _ready():
 	pass
 	
 func _process(delta):
+	
 	if curr_health <= (health / 2) and state == "healthy":
-		var currFrame = $an_zombie.get_frame()
-		$an_zombie.set_animation("walk_noarm")
-		$an_zombie.set_frame(currFrame)
-		var darm = arm.instantiate()
-		add_child(darm)
-		darm.position = $arm_spawn.position
-		darm.pgp = global_position
-		#$head_phs2.pop_off()
-		state = "hurt"
+		_arm_off()
+
 		
 	if curr_health <= 0 and state == "hurt":
-		var currFrame = $an_zombie.get_frame()
-		$an_zombie.set_animation("walk_nohead")
-		$an_zombie.set_frame(currFrame)
-#		$head_phs.pop_off()
-		var dhead = head.instantiate()
-		add_child(dhead)
-		dhead.position = $head_spawn.position
-		dhead.pgp = global_position
-		$hitArea.queue_free()
-		state = "dead"
+		_head_off()
+
 		
-		if $an_zombie.animation == "death":
-			if $an_zombie.get_frame() == 24:
-				$an_zombie.stop()
 		
 #	if $an_zombie.is_playing("walk_nohead") and state == "dead":
 #		$an_zombie.animation_finished
@@ -87,12 +72,42 @@ func _hit(damage):
 	curr_health -= damage
 
 
+func _arm_off():
+	var currFrame = $an_zombie.get_frame()
+	$an_zombie.set_animation("walk_noarm")
+	$an_zombie.set_frame(currFrame)
+	var darm = arm.instantiate()
+	add_child(darm)
+	darm.position = $arm_spawn.position
+	darm.pgp = global_position
+	darm.get_node("fadetimer").start()
+	#var fadetimer = darm.get_node("fadetimer")
+	#fadetimer.start()
+	#$head_phs2.pop_off()
+	state = "hurt"
+	
+func _head_off():
+	state = "dead"
+	var currFrame = $an_zombie.get_frame()
+	$an_zombie.set_animation("walk_nohead")
+	$an_zombie.set_frame(currFrame)
+#		$head_phs.pop_off()
+	var dhead = head.instantiate()
+	add_child(dhead)
+	dhead.position = $head_spawn.position
+	dhead.pgp = global_position
+	$hitArea.queue_free()
 
 func _on_an_zombie_animation_finished():
+	
 	if state == "dead":
+		state = "fall"
 		$an_zombie.set_animation("death")
 		$an_zombie.play()
 		$fadeTimer.start()
+	elif state == "fall":
+		state = "lie"
+		$an_zombie.set_animation("dead")
 	pass # Replace with function body.
 
 
@@ -124,7 +139,7 @@ func _on_EatTimer_timeout():
 	var pe = weakref(planteat)
 	if pe.get_ref() and state != "dead":
 		pe.get_ref().get_parent().health -= 20
-		pe.get_ref().get_parent().damage()
+		#pe.get_ref().get_parent().damage()
 	else:
 		$an_zombie.play()
 	if eating == true:
