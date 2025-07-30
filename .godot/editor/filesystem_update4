@@ -1,7 +1,0 @@
-res://default_env.tres
-res://scenes/enemies/zombie/zombie.gd
-res://scenes/peashooter/psh.gd
-res://scenes/lawn_grids/main/lawn_0.tscn
-res://scenes/enemies/zombie/zombie.tscn
-res://scenes/peashooter/psh.tscn
-res://scenes/peashooter/pea/pea.gd
