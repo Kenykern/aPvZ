@@ -68,7 +68,11 @@ func arm_down():
 	pass
 	
 func _hit(damage):
-	$damage_flash.play("damage_flash")
+	if $damage_flash.is_playing():
+		$damage_flash.stop()
+	#	$damage_flash.current_animation_position = 0
+	$damage_flash.play("damage_flash", -1)
+
 	curr_health -= damage
 
 

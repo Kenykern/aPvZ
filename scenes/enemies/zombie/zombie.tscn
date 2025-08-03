@@ -2777,10 +2777,10 @@ tracks/0/path = NodePath("an_zombie:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0719553, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1.5, 1.5, 1.5, 1), Color(1, 1, 1, 1)]
+"values": [Color(1.5, 1.5, 1.5, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b73o4"]

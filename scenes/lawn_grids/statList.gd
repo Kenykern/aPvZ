@@ -3,7 +3,14 @@ extends Control
 
 var holding_plant = false
 var seedpacket_id
+var seedpacket = ""
+var tooltipModulate
 
+
+func _ready() -> void:
+	#seedpacket = plants[seedpacket]
+	pass
+	
 var plants = {
 	"peashooter": {"name":"Peashooter", "suncost":"100", "path":"res://scenes/peashooter/psh.tscn"},
 	

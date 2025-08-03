@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://1wcruifr4hse"]
+[gd_scene load_steps=11 format=3 uid="uid://1wcruifr4hse"]
 
 [ext_resource type="PackedScene" uid="uid://csd3qyps6lxdv" path="res://scenes/lawn_grids/lawn_grid_1.tscn" id="1"]
 [ext_resource type="Script" uid="uid://6fi3ovij6dki" path="res://scenes/lawn_grids/controller.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dt68ihpnryi6m" path="res://scenes/GUI/Tooltip.tscn" id="2_ncnd8"]
 [ext_resource type="Texture2D" uid="uid://3tb4hq0al78r" path="res://PvZ2_Backyard01.png" id="3"]
 [ext_resource type="PackedScene" uid="uid://cg2k0xg4lgtiw" path="res://scenes/enemies/zombie/zombie.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://cilt04m1k0rb5" path="res://scenes/lawn_grids/main/seed_planter.tscn" id="5"]
@@ -14,6 +15,13 @@ size = Vector2(943, 11.5)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("2")
+
+[node name="Tooltip" parent="." instance=ExtResource("2_ncnd8")]
+z_index = 5
+offset_left = 300.0
+offset_top = 59.0
+offset_right = 300.0
+offset_bottom = 109.0
 
 [node name="spawn_controller" type="Node2D" parent="."]
 script = ExtResource("7")
@@ -109,6 +117,9 @@ offset_top = 55.0
 offset_right = 1088.0
 offset_bottom = 105.0
 
+[node name="Button" parent="Control/HBoxContainer" index="0"]
+text = "sunflower"
+
 [node name="spawn1" type="Node2D" parent="."]
 position = Vector2(1263, 209)
 
@@ -126,7 +137,6 @@ position = Vector2(1265, 682)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(417, 352)
-zoom = Vector2(0.9, 0.9)
 
 [connection signal="timeout" from="spawn_controller/z_timeline/stTimer" to="spawn_controller/z_timeline" method="_on_stTimer_timeout"]
 
