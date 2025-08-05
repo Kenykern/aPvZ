@@ -19,9 +19,9 @@ func _ready():
 
 func _process(delta):
 	if StatList.plants.has(StatList.seedpacket):
-		print("grab")
+		#print("grab")
 		set_packet = StatList.plants[StatList.seedpacket]
-		print(StatList.plants[StatList.seedpacket])
+		#print(StatList.plants[StatList.seedpacket])
 		$PlantName.set_text(set_packet["name"])
 		$SunCost.set_text("Cost: " + set_packet["suncost"])
 	#raise()

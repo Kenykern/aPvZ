@@ -2829,7 +2829,7 @@ collision_layer = 512
 collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EatArea"]
-position = Vector2(-65, -60.7292)
+position = Vector2(-4.9999995, -33.333332)
 shape = SubResource("4")
 
 [connection signal="area_entered" from="hitArea" to="." method="_on_hitArea_area_entered"]

@@ -36,7 +36,7 @@ func seedPacket_reset():
 
 
 func _on_mouse_entered() -> void:
-	get_tree().get_root().get_node("/root/Node2D/Tooltip").showLabel = true
+	get_tree().get_root().get_node("/root/Node2D/CanvasLayer/Tooltip").showLabel = true
 	var mousePos = get_global_mouse_position() 
 	if get_global_rect().has_point(mousePos):
 		print("mouse entered: " + name + " " + StatList.seedpacket + " ")
@@ -45,5 +45,5 @@ func _on_mouse_entered() -> void:
 
 
 func _on_mouse_exited() -> void:
-	get_tree().get_root().get_node("/root/Node2D/Tooltip").showLabel = false
+	get_tree().get_root().get_node("/root/Node2D/CanvasLayer/Tooltip").showLabel = false
 	pass # Replace with function body.

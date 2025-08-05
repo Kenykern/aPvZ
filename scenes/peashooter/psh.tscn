@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://cohughj8ceir4"]
+[gd_scene load_steps=95 format=3 uid="uid://cohughj8ceir4"]
 
 [ext_resource type="Texture2D" uid="uid://bpd0l00doe3eo" path="res://resources/peashooter/new_peashooter_std/pshooterstd_00042.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://bv3ktjj14o45a" path="res://resources/peashooter/new_peashooter_std/pshooterstd_00026.png" id="2"]
@@ -90,10 +90,7 @@
 [ext_resource type="Texture2D" uid="uid://yypv0nxr1bin" path="res://resources/peashooter/shoot/pshooter1cshoot_00014.png" id="88"]
 [ext_resource type="Script" uid="uid://dhxxhw58o5ma4" path="res://scenes/peashooter/psh.gd" id="89"]
 [ext_resource type="Texture2D" uid="uid://cao27boyy10v5" path="res://resources/sfx/smoke_particle.png" id="90"]
-[ext_resource type="Animation" path="res://animations/popup.tres" id="91"]
-
-[sub_resource type="RectangleShape2D" id="2"]
-size = Vector2(922.5, 28.9286)
+[ext_resource type="Animation" uid="uid://x3tlc3a0iu6x" path="res://animations/popup.tres" id="91"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -378,19 +375,11 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="3"]
-size = Vector2(10, 42.1429)
+size = Vector2(65.00001, 85.35715)
 
 [node name="peashooter" type="Node2D"]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.1, 0.1)
 script = ExtResource("89")
-
-[node name="foeCollision" type="Area2D" parent="."]
-collision_layer = 512
-collision_mask = 512
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="foeCollision"]
-position = Vector2(900.357, -64.2857)
-shape = SubResource("2")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(110, -96)
@@ -427,10 +416,11 @@ collision_layer = 512
 collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="eatCollision"]
-position = Vector2(20, -54.2857)
+position = Vector2(-7.500005, -32.678562)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("3")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
-[connection signal="timeout" from="TargetCheck" to="." method="_on_TargetCheck_timeout"]
 [connection signal="timeout" from="TargetCheck" to="." method="_on_target_check_timeout"]
+[connection signal="timeout" from="TargetCheck" to="." method="_on_TargetCheck_timeout"]

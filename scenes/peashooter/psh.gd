@@ -18,8 +18,6 @@ var gr = "foes"
 func _ready():
 	$TargetCheck.start(2)
 	$AnimationPlayer.play("popup")
-	$foeCollision.collision_layer = 10
-	$foeCollision.collision_mask = 10
 	pass # Replace with function body.
 
 

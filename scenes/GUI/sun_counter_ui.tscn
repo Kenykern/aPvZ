@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvxby1owu6gsn"]
+
+[ext_resource type="Script" uid="uid://crufvls7thgjw" path="res://scenes/GUI/sun_counter_ui.gd" id="1_y65jh"]
+
+[node name="SunCounterUI" type="Control"]
+layout_mode = 3
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_y65jh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "499"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

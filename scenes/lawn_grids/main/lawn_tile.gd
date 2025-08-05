@@ -25,5 +25,3 @@ func _on_Area2D_mouse_entered():
 func _on_Area2D_mouse_exited():
 	$Polygon2D.set_color(Color(1,1,1,0))
 	mouseArea = false
-
-

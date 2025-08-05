@@ -4,13 +4,14 @@ var curr_health = 100
 const head = preload("res://scenes/enemies/zombie/head_phs.tscn")
 const arm = preload("res://scenes/enemies/zombie/arm_phs.tscn")
 @export var state : String
-var lane = 1
+@export var lane = 1
 var eating = false
 var fading = false
 var planteat
 
 
 func _ready():
+	$an_zombie.play("walk")
 	state = "healthy"
 	$an_zombie.animation = "walk"
 #	$head_phs.modulate.a = 0
@@ -131,7 +132,6 @@ func _on_EatArea_area_entered(area):
 		$EatTimer.start(1)
 		eating = true
 		planteat = area
-	pass # Replace with function body.
 
 func _on_EatArea_area_exited(area):
 	_loc_await(randi() % 2)

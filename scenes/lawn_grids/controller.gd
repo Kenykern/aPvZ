@@ -38,6 +38,7 @@ func _input(event):
 				var plant = load(StatList.plants[instance_from_id(StatList.seedpacket_id).seedpacket]["path"])
 				#var plant = load(strp)
 				var ap = plant.instantiate()
+				StatList.loseSun(int(StatList.plants[StatList.seedpacket]["suncost"]))
 				var pposition =  instance_from_id($lawn_grid.currHL).get_node("plant_position").global_position
 				$Node2D.add_child(ap)
 				ap.lane = instance_from_id($lawn_grid.currHL).lane

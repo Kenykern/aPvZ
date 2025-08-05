@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://1wcruifr4hse"]
+[gd_scene load_steps=13 format=3 uid="uid://1wcruifr4hse"]
 
 [ext_resource type="PackedScene" uid="uid://csd3qyps6lxdv" path="res://scenes/lawn_grids/lawn_grid_1.tscn" id="1"]
 [ext_resource type="Script" uid="uid://6fi3ovij6dki" path="res://scenes/lawn_grids/controller.gd" id="2"]
@@ -9,19 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://b11bimyww6u84" path="res://scenes/sunflower/sunflower.tscn" id="6"]
 [ext_resource type="Script" uid="uid://bwqbw3231lv7a" path="res://scenes/lawn_grids/spawn_controller.gd" id="7"]
 [ext_resource type="Script" uid="uid://c4n2512gw4dnb" path="res://scenes/lawn_grids/main/z_timeline.gd" id="8"]
+[ext_resource type="PackedScene" uid="uid://bgu17dxaldoxk" path="res://scenes/sun/sun.tscn" id="10_mim3n"]
+[ext_resource type="PackedScene" uid="uid://dvxby1owu6gsn" path="res://scenes/GUI/sun_counter_ui.tscn" id="11_vui1e"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(943, 11.5)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("2")
-
-[node name="Tooltip" parent="." instance=ExtResource("2_ncnd8")]
-z_index = 5
-offset_left = 300.0
-offset_top = 59.0
-offset_right = 300.0
-offset_bottom = 109.0
 
 [node name="spawn_controller" type="Node2D" parent="."]
 script = ExtResource("7")
@@ -32,6 +27,7 @@ script = ExtResource("8")
 [node name="stTimer" type="Timer" parent="spawn_controller/z_timeline"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = -1
 offset_left = -687.0
 offset_top = -256.0
 offset_right = 2312.0
@@ -50,15 +46,18 @@ y_sort_enabled = true
 
 [node name="Zombie" parent="Node2D" instance=ExtResource("4")]
 position = Vector2(896, 645)
+lane = 5
 
 [node name="Zombie2" parent="Node2D" instance=ExtResource("4")]
 position = Vector2(822, 560)
+lane = 4
 
 [node name="sunflower" parent="Node2D" instance=ExtResource("6")]
 position = Vector2(853, 659)
 
 [node name="Zombie3" parent="Node2D" instance=ExtResource("4")]
 position = Vector2(1124, 274)
+lane = 2
 
 [node name="lanePhy1" type="StaticBody2D" parent="."]
 position = Vector2(600, 203)
@@ -105,21 +104,6 @@ collision_mask = 32
 position = Vector2(21, 3)
 shape = SubResource("1")
 
-[node name="Control" parent="." instance=ExtResource("5")]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 1004.0
-offset_bottom = 54.0
-
-[node name="HBoxContainer" parent="Control" index="0"]
-offset_left = 88.0
-offset_top = 55.0
-offset_right = 1088.0
-offset_bottom = 105.0
-
-[node name="Button" parent="Control/HBoxContainer" index="0"]
-text = "sunflower"
-
 [node name="spawn1" type="Node2D" parent="."]
 position = Vector2(1263, 209)
 
@@ -138,6 +122,37 @@ position = Vector2(1265, 682)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(417, 352)
 
+[node name="Sun" parent="." instance=ExtResource("10_mim3n")]
+position = Vector2(1247, 111)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("5")]
+anchors_preset = -1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1004.0
+offset_bottom = 54.0
+
+[node name="HBoxContainer" parent="CanvasLayer/Control" index="0"]
+offset_left = 88.0
+offset_top = 55.0
+offset_right = 1088.0
+offset_bottom = 105.0
+
+[node name="Button" parent="CanvasLayer/Control/HBoxContainer" index="0"]
+text = "sunflower"
+
+[node name="Tooltip" parent="CanvasLayer" instance=ExtResource("2_ncnd8")]
+z_index = 5
+offset_left = 300.0
+offset_top = 59.0
+offset_right = 300.0
+offset_bottom = 109.0
+
+[node name="SunCounterUI" parent="CanvasLayer" instance=ExtResource("11_vui1e")]
+
 [connection signal="timeout" from="spawn_controller/z_timeline/stTimer" to="spawn_controller/z_timeline" method="_on_stTimer_timeout"]
 
-[editable path="Control"]
+[editable path="CanvasLayer/Control"]
+[editable path="CanvasLayer/SunCounterUI"]
