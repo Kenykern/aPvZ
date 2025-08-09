@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfkpxlpcrefwa"]
+
+[ext_resource type="Script" uid="uid://c8x617ffpemap" path="res://scenes/GUI/an_seedpacket.gd" id="1_45456"]
+
+[node name="AnSeedpacket" type="Node2D"]
+script = ExtResource("1_45456")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+clip_contents = true
+anchors_preset = -1
+offset_right = 16.0
+offset_bottom = 12.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect"]
+position = Vector2(149, 89)

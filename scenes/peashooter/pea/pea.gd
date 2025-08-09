@@ -4,7 +4,7 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var speed = 15
+var speed = 10
 var damage = 10
 var lane
 var relSpawn

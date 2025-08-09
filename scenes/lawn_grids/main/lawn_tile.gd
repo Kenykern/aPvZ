@@ -2,12 +2,14 @@ extends Area2D
 var mouseArea = false
 var available = true
 var shOwner
+var onme = null
 signal instID(instid1)
 var currId
 @export var lane: int
 func _ready():
 	$Polygon2D.set_color(Color(1,1,1,0))
 func _process(delta):
+	if onme == null: available = true
 	pass
 
 

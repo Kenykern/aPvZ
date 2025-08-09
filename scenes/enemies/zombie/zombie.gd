@@ -8,9 +8,10 @@ const arm = preload("res://scenes/enemies/zombie/arm_phs.tscn")
 var eating = false
 var fading = false
 var planteat
-
+var orig_modulate
 
 func _ready():
+	orig_modulate = modulate
 	$an_zombie.play("walk")
 	state = "healthy"
 	$an_zombie.animation = "walk"
@@ -129,20 +130,27 @@ func _on_EatArea_area_entered(area):
 	if area.is_in_group("plantcol") and area.get_parent().lane == lane and state != "dead":
 		$an_zombie.stop()
 		$an_zombie.set_frame(1)
-		$EatTimer.start(1)
+		if health > 0:
+			$EatTimer.start(1)
 		eating = true
 		planteat = area
 
 func _on_EatArea_area_exited(area):
-	_loc_await(randi() % 2)
+	#_loc_await(randi() % 2)
 
 	pass # Replace with function body.
 
 
 func _on_EatTimer_timeout():
-	var pe = weakref(planteat)
-	if pe.get_ref() and state != "dead":
-		pe.get_ref().get_parent().health -= 20
+	if health<=0:
+		return
+	var pe = planteat
+	
+	if pe and health>0:
+		StatList.intensity_flash(pe.get_parent(), 1.3, 0.08)
+
+
+		pe.get_parent().health -= 20
 		#pe.get_ref().get_parent().damage()
 	else:
 		$an_zombie.play()

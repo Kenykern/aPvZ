@@ -39,6 +39,7 @@ enabled=PackedStringArray("res://addons/codeandweb.texturepacker/plugin.cfg")
 [global_group]
 
 foe=""
+plantcol=""
 
 [gui]
 

@@ -664,7 +664,7 @@
 [ext_resource type="Texture2D" uid="uid://cd6xm6q8o360s" path="res://resources/enemies/zombie/zombie_walk_nohead/zombie_walkver2_00206.png" id="805"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(22, 95)
+size = Vector2(88.33333, 95)
 
 [sub_resource type="SpriteFrames" id="2"]
 animations = [{
@@ -2798,7 +2798,7 @@ script = ExtResource("453")
 [node name="hitArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitArea"]
-position = Vector2(-4, -109)
+position = Vector2(29.166666, -109)
 shape = SubResource("1")
 
 [node name="an_zombie" type="AnimatedSprite2D" parent="."]

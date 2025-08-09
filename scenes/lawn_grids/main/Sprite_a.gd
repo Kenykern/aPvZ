@@ -9,6 +9,6 @@ func _ready():
 func _process(delta):
 	#if StatList.holding_plant == false:
 	if get_parent().button_pressed == true or $"../TextureProgressBar".value != 0:
-		modulate.a = 0.4
+		modulate.a = 0.2
 	else:
 		modulate.a = 0

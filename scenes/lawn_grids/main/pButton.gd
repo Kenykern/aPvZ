@@ -6,8 +6,10 @@ extends Button
 #where all the plant and properties are in a dictionary
 
 @onready var set_packet = StatList.plants[seedpacket]
+@onready var spritePosition = $spritePosition.position
 
 func _on_ready():
+	#call_deferred("_deferred")
 	pass
 	
 func _process(delta):

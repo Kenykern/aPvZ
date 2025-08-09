@@ -2,6 +2,7 @@ extends Node2D
 var sun = false
 var lane
 var gr
+var health: int = 100
 var psun = preload("res://scenes/sun/sun.tscn")
 var sunEmitted = false
 func _ready():
@@ -10,6 +11,7 @@ func _ready():
 	pass
 	
 func _process(delta):
+		if health <= 0: queue_free()
 		if $AnimatedSprite2D.animation == "sun" and $AnimatedSprite2D.frame == 52 and !sunEmitted:
 			sunEmitted = true
 			var pnsun = psun.instantiate()

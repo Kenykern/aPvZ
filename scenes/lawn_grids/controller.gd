@@ -41,6 +41,8 @@ func _input(event):
 				StatList.loseSun(int(StatList.plants[StatList.seedpacket]["suncost"]))
 				var pposition =  instance_from_id($lawn_grid.currHL).get_node("plant_position").global_position
 				$Node2D.add_child(ap)
+				#once the plant is freed from memory, the tile will detect it as null and hence become available
+				instance_from_id($lawn_grid.currHL).onme = ap
 				ap.lane = instance_from_id($lawn_grid.currHL).lane
 				print(ap.lane)
 				ap.position = pposition

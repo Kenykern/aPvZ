@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://crly0codj33cu"]
+[gd_scene load_steps=7 format=3 uid="uid://crly0codj33cu"]
 
 [ext_resource type="Script" uid="uid://bgqnthaeximx7" path="res://scenes/lawn_grids/main/pButton.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bcjdc6b8s2fve" path="res://resources/gui/seedpacket_selection.png" id="2"]
 [ext_resource type="SpriteFrames" path="res://resources/spriteFrames/psh_seedpacket_spriteframe.tres" id="3"]
 [ext_resource type="Script" uid="uid://c1dlyot7q3j8r" path="res://scenes/lawn_grids/main/Sprite_a.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://bfkpxlpcrefwa" path="res://scenes/GUI/anSeedpacket.tscn" id="6_dmbk6"]
 [ext_resource type="Script" uid="uid://bwe2om3u8ujar" path="res://scenes/lawn_grids/main/seedProgress.gd" id="7"]
 
 [node name="SeedPacket" type="Button"]
 custom_minimum_size = Vector2(100, 50)
+anchors_preset = -1
 offset_right = 100.0
 offset_bottom = 50.0
 mouse_default_cursor_shape = 2
@@ -24,7 +26,10 @@ sprite_frames = ExtResource("3")
 frame = 33
 offset = Vector2(50, 25)
 
+[node name="AnSeedpacket" parent="." instance=ExtResource("6_dmbk6")]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.0627451)
 texture = ExtResource("2")
 offset = Vector2(50, 25)
 script = ExtResource("4")
@@ -49,6 +54,9 @@ text = "100"
 [node name="Node2D" type="Node2D" parent="."]
 z_index = 10
 z_as_relative = false
+
+[node name="spritePosition" type="Node2D" parent="."]
+position = Vector2(48, 24)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
